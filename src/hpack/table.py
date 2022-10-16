@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
-from collections import deque
 import logging
+from collections import deque
 
 from .exceptions import InvalidTableIndex
 
@@ -40,67 +40,67 @@ class HeaderTable:
     #: Constant list of static headers. See RFC7541 Section
     #:  2.3.1 and Appendix A
     STATIC_TABLE = (
-        (b':authority'                  , b''             ),  # noqa
+        # (b':authority'                  , b''             ),  # noqa
         (b':method'                     , b'GET'          ),  # noqa
         (b':method'                     , b'POST'         ),  # noqa
         (b':path'                       , b'/'            ),  # noqa
         (b':path'                       , b'/index.html'  ),  # noqa
         (b':scheme'                     , b'http'         ),  # noqa
-        (b':scheme'                     , b'https'        ),  # noqa
+        # (b':scheme'                     , b'https'        ),  # noqa
         (b':status'                     , b'200'          ),  # noqa
-        (b':status'                     , b'204'          ),  # noqa
-        (b':status'                     , b'206'          ),  # noqa
-        (b':status'                     , b'304'          ),  # noqa
-        (b':status'                     , b'400'          ),  # noqa
+        # (b':status'                     , b'204'          ),  # noqa
+        # (b':status'                     , b'206'          ),  # noqa
+        # (b':status'                     , b'304'          ),  # noqa
+        # (b':status'                     , b'400'          ),  # noqa
         (b':status'                     , b'404'          ),  # noqa
         (b':status'                     , b'500'          ),  # noqa
-        (b'accept-charset'              , b''             ),  # noqa
-        (b'accept-encoding'             , b'gzip, deflate'),  # noqa
-        (b'accept-language'             , b''             ),  # noqa
-        (b'accept-ranges'               , b''             ),  # noqa
-        (b'accept'                      , b''             ),  # noqa
-        (b'access-control-allow-origin' , b''             ),  # noqa
-        (b'age'                         , b''             ),  # noqa
-        (b'allow'                       , b''             ),  # noqa
-        (b'authorization'               , b''             ),  # noqa
-        (b'cache-control'               , b''             ),  # noqa
-        (b'content-disposition'         , b''             ),  # noqa
-        (b'content-encoding'            , b''             ),  # noqa
-        (b'content-language'            , b''             ),  # noqa
-        (b'content-length'              , b''             ),  # noqa
-        (b'content-location'            , b''             ),  # noqa
-        (b'content-range'               , b''             ),  # noqa
+        # (b'accept-charset'              , b''             ),  # noqa
+        # (b'accept-encoding'             , b'gzip, deflate'),  # noqa
+        # (b'accept-language'             , b''             ),  # noqa
+        # (b'accept-ranges'               , b''             ),  # noqa
+        # (b'accept'                      , b''             ),  # noqa
+        # (b'access-control-allow-origin' , b''             ),  # noqa
+        # (b'age'                         , b''             ),  # noqa
+        # (b'allow'                       , b''             ),  # noqa
+        # (b'authorization'               , b''             ),  # noqa
+        # (b'cache-control'               , b''             ),  # noqa
+        # (b'content-disposition'         , b''             ),  # noqa
+        # (b'content-encoding'            , b''             ),  # noqa
+        # (b'content-language'            , b''             ),  # noqa
+        # (b'content-length'              , b''             ),  # noqa
+        # (b'content-location'            , b''             ),  # noqa
+        # (b'content-range'               , b''             ),  # noqa
         (b'content-type'                , b''             ),  # noqa
         (b'cookie'                      , b''             ),  # noqa
-        (b'date'                        , b''             ),  # noqa
-        (b'etag'                        , b''             ),  # noqa
-        (b'expect'                      , b''             ),  # noqa
-        (b'expires'                     , b''             ),  # noqa
-        (b'from'                        , b''             ),  # noqa
-        (b'host'                        , b''             ),  # noqa
-        (b'if-match'                    , b''             ),  # noqa
-        (b'if-modified-since'           , b''             ),  # noqa
-        (b'if-none-match'               , b''             ),  # noqa
-        (b'if-range'                    , b''             ),  # noqa
-        (b'if-unmodified-since'         , b''             ),  # noqa
-        (b'last-modified'               , b''             ),  # noqa
-        (b'link'                        , b''             ),  # noqa
-        (b'location'                    , b''             ),  # noqa
-        (b'max-forwards'                , b''             ),  # noqa
-        (b'proxy-authenticate'          , b''             ),  # noqa
-        (b'proxy-authorization'         , b''             ),  # noqa
-        (b'range'                       , b''             ),  # noqa
-        (b'referer'                     , b''             ),  # noqa
-        (b'refresh'                     , b''             ),  # noqa
-        (b'retry-after'                 , b''             ),  # noqa
-        (b'server'                      , b''             ),  # noqa
-        (b'set-cookie'                  , b''             ),  # noqa
-        (b'strict-transport-security'   , b''             ),  # noqa
-        (b'transfer-encoding'           , b''             ),  # noqa
-        (b'user-agent'                  , b''             ),  # noqa
-        (b'vary'                        , b''             ),  # noqa
-        (b'via'                         , b''             ),  # noqa
-        (b'www-authenticate'            , b''             ),  # noqa
+        # (b'date'                        , b''             ),  # noqa
+        # (b'etag'                        , b''             ),  # noqa
+        # (b'expect'                      , b''             ),  # noqa
+        # (b'expires'                     , b''             ),  # noqa
+        # (b'from'                        , b''             ),  # noqa
+        # (b'host'                        , b''             ),  # noqa
+        # (b'if-match'                    , b''             ),  # noqa
+        # (b'if-modified-since'           , b''             ),  # noqa
+        # (b'if-none-match'               , b''             ),  # noqa
+        # (b'if-range'                    , b''             ),  # noqa
+        # (b'if-unmodified-since'         , b''             ),  # noqa
+        # (b'last-modified'               , b''             ),  # noqa
+        # (b'link'                        , b''             ),  # noqa
+        # (b'location'                    , b''             ),  # noqa
+        # (b'max-forwards'                , b''             ),  # noqa
+        # (b'proxy-authenticate'          , b''             ),  # noqa
+        # (b'proxy-authorization'         , b''             ),  # noqa
+        # (b'range'                       , b''             ),  # noqa
+        # (b'referer'                     , b''             ),  # noqa
+        # (b'refresh'                     , b''             ),  # noqa
+        # (b'retry-after'                 , b''             ),  # noqa
+        # (b'server'                      , b''             ),  # noqa
+        # (b'set-cookie'                  , b''             ),  # noqa
+        # (b'strict-transport-security'   , b''             ),  # noqa
+        # (b'transfer-encoding'           , b''             ),  # noqa
+        # (b'user-agent'                  , b''             ),  # noqa
+        # (b'vary'                        , b''             ),  # noqa
+        # (b'via'                         , b''             ),  # noqa
+        # (b'www-authenticate'            , b''             ),  # noqa
     )  # noqa
 
     STATIC_TABLE_LENGTH = len(STATIC_TABLE)
