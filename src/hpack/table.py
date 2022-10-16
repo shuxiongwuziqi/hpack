@@ -35,7 +35,7 @@ class HeaderTable:
     """
     #: Default maximum size of the dynamic table. See
     #:  RFC7540 Section 6.5.2.
-    DEFAULT_SIZE = 4096
+    DEFAULT_SIZE = 1000
 
     #: Constant list of static headers. See RFC7541 Section
     #:  2.3.1 and Appendix A

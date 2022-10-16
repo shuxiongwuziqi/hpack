@@ -7,16 +7,13 @@ Implements the HPACK header compression algorithm as detailed by the IETF.
 """
 import logging
 
-from .table import HeaderTable, table_entry_size
-from .exceptions import (
-    HPACKDecodingError, OversizedHeaderListError, InvalidTableSizeError
-)
+from .exceptions import (HPACKDecodingError, InvalidTableSizeError,
+                         OversizedHeaderListError)
 from .huffman import HuffmanEncoder
-from .huffman_constants import (
-    REQUEST_CODES, REQUEST_CODES_LENGTH
-)
+from .huffman_constants import REQUEST_CODES, REQUEST_CODES_LENGTH
 from .huffman_table import decode_huffman
 from .struct import HeaderTuple, NeverIndexedHeaderTuple
+from .table import HeaderTable, table_entry_size
 
 log = logging.getLogger(__name__)
 
@@ -254,7 +251,7 @@ class Encoder:
             header = (_to_bytes(header[0]), _to_bytes(header[1]))
             header_block.append(self.add(header, sensitive, huffman))
 
-        header_block = b''.join(header_block)
+        # header_block = b''.join(header_block)
 
         log.debug("Encoded header block to %s", header_block)
 
