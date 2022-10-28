@@ -25,6 +25,14 @@
             "env": {
                 "PYTHONPATH": "/home/wu/hpack/src"
             }
+        },
+        {
+            "name": "app",
+            "type": "python",
+            "request": "launch",
+            "program": "${cwd}/app.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
         }
     ]
 }

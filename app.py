@@ -1,3 +1,4 @@
+import time
 from distutils.log import debug
 from urllib import request
 
@@ -32,6 +33,7 @@ def showTable(table):
 
 @app.route(PREFIX+"/encode", methods=["POST"])
 def encode():
+    time.sleep(0.5)
     json = request.json
     data = json['data']
     huffman = json['huffman']
@@ -43,6 +45,7 @@ def encode():
 
 @app.route(PREFIX+"/decode", methods=["POST"])
 def decode():
+    time.sleep(0.5)
     json = request.json
     data = json['data']
     res = d.decode(toByte(data), raw=False)
@@ -53,6 +56,7 @@ def decode():
 
 @app.route(PREFIX+"/table", methods=["POST"])
 def table():
+    time.sleep(0.5)
     dynamicTable = e.header_table.dynamic_entries
     staticTable = e.header_table.STATIC_TABLE
 
@@ -79,5 +83,5 @@ if __name__ == '__main__':
     app.run(
       host='0.0.0.0',
       port= 8082,
-      debug=True
+      debug=False
     )
